@@ -5,7 +5,21 @@ import {ViewGridIcon,MicrophoneIcon } from "@heroicons/react/solid";
 import {SearchIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Footer from "../components/Footer";
+import { useRef } from "react";
+
 const Home: NextPage = () => {
+    const searchInputRef = useRef({} as HTMLInputElement);
+
+  const search= (e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+    e.preventDefault();
+    const  term = searchInputRef?.current?.value;
+    if (!term) return;
+    else{
+      console.log("hi")
+    }
+  }
+
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <Head>
@@ -40,12 +54,12 @@ const Home: NextPage = () => {
         ></Image>
         <div className="flex w-full mt-5 hover:shadow-lg focus-within:shadow-lg max-w-md rounded-full border-gray-200 px-5 py-3 items-center sm:max-w-xl lg:max-w-2xl">
           <SearchIcon className="h-5  mr-3 text-gray-500"></SearchIcon>
-          <input type="text" className=" focus:outline-none flex-grow" />
+          <input ref={searchInputRef} type="text" className=" focus:outline-none flex-grow" />
           <MicrophoneIcon className="h-5"></MicrophoneIcon>
         </div>
         <div className="flex flex-col w-1/2 space-y-2 justify-center mt-8 sm:space-y-0 sm:flex-row sm:space-x-4">
-          <button className="btn">Google Search</button>
-          <button className="btn">I´m Feeling Lucky</button>
+          <button onClick={(e)=>search(e)} className="btn">Google Search</button>
+          <button onClick={(e)=>search(e)} className="btn">I´m Feeling Lucky</button>
         </div>
       </form>
 
