@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images:{
-    domains: ['randomuser.me']
+    domains: ['cdn.pixabay.com']
   }
 }

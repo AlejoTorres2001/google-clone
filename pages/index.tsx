@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Avatar from "../components/Avatar";
-import {ViewGridIcon,MicrophoneIcon} from "@heroicons/react/solid";
+import {ViewGridIcon,MicrophoneIcon } from "@heroicons/react/solid";
+import {SearchIcon } from "@heroicons/react/outline";
+import Image from "next/image";
 const Home: NextPage = () => {
   return (
     <div>
@@ -28,6 +30,18 @@ const Home: NextPage = () => {
         </div>
       </header>
       {/* Body */}
+      <form className="flex flex-col items-center mt-44 ">
+        <Image
+          src="https://cdn.pixabay.com/photo/2015/09/14/04/19/google-939112_960_720.png"
+          height={100}
+          width={300}
+        ></Image>
+        <div className="flex w-full mt-5 hover:shadow-lg focus-within:shadow-lg max-w-md rounded-full border-gray-200 px-5 py-3 items-center sm:max-w-xl lg:max-w-2xl">
+          <SearchIcon className="h-5  mr-3 text-gray-500"></SearchIcon>
+          <input type="text" className=" focus:outline-none flex-grow" />
+          <MicrophoneIcon className="h-5"></MicrophoneIcon>
+        </div>
+      </form>
 
       {/* Footer */}
     </div>
