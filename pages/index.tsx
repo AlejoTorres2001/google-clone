@@ -6,17 +6,16 @@ import {SearchIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import { useRef } from "react";
-
+import { useRouter } from "next/router";
 const Home: NextPage = () => {
+  const router = useRouter();
     const searchInputRef = useRef({} as HTMLInputElement);
 
   const search= (e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
     e.preventDefault();
     const  term = searchInputRef?.current?.value;
     if (!term) return;
-    else{
-      console.log("hi")
-    }
+    router.push(`/search?term=${term}`);
   }
 
 
@@ -41,7 +40,7 @@ const Home: NextPage = () => {
           {/* Icon */}
           <ViewGridIcon className="w-10 h-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer"></ViewGridIcon>
           {/* Avatar */}
-          <Avatar url="https://randomuser.me/api/portraits/men/49.jpg" />
+          <Avatar url="https://randomuser.me/api/portraits/men/49.jpg" className="" />
         </div>
       </header>
       {/* Body */}
