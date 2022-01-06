@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { FormEvent, useRef } from "react";
 import Avatar from "./Avatar";
-import HeaderOptions from "./headerOptions";
+import HeaderOptions from "./HeaderOptions";
 
 const Header = () => {
   const router = useRouter();
