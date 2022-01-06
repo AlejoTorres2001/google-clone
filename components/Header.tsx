@@ -1,13 +1,14 @@
 import { MicrophoneIcon, SearchIcon, XIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { FormEvent, useRef } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 import Avatar from "./Avatar";
 import HeaderOptions from "./HeaderOptions";
 
 const Header = () => {
   const router = useRouter();
   const searchInputRef = useRef({} as HTMLInputElement);
+ const [search, setSearch] = useState(router.query.term || "");
 
   const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
     e.preventDefault();
@@ -30,6 +31,8 @@ const Header = () => {
       <form onSubmit={handleSubmit} className="flex border px-6 py-3 ml-10 mr-5 border-gray-200 rounded-full flex-grow shadow-lg max-w-3xl items-center">
         <input
           ref={searchInputRef}
+          value = {search}
+          onChange = {(e)=>setSearch(e.target.value)}
           type="text"
           className="flex-grow w-full focus:outline-none"
         ></input>
