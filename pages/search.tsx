@@ -32,7 +32,7 @@ type context={
     }
 }
 export const  getServerSideProps : GetServerSideProps = async (context: context)=> {
-    const  useDummyData = true
+    const  useDummyData = false
     const startIndex = context.query.start || "0";
     const data = useDummyData ? dummyData:  await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CX}&q=${context.query?.term}&start=${startIndex}`).then(res=>res.json())
     return {
