@@ -24,10 +24,11 @@ const SearchResults = ({ results }: Props) => {
                 </a>
             </div>
             <p className="line-clamp-2">{item.snippet}</p>
-            <PaginationButtons></PaginationButtons>
           </div>
         );
       })}
+    <PaginationButtons></PaginationButtons>
+
     </div>
   );
 };
